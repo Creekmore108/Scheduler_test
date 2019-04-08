@@ -7,15 +7,6 @@ I created a new project and connected to the existing DB withe the test data loa
 
 Here are the migrations to create events and resources tables:
 
-class CreateEventsTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
         Schema::create('events', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('text');
@@ -25,46 +16,14 @@ class CreateEventsTable extends Migration
             $table->bigInteger('resource_id')->nullable()->default(null);
             $table->bigInteger('user_id')->nullable()->default(null);
             $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('events');
-    }
-}
+       
 =================================================================
-class CreateResourcesTable extends Migration
-{
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
+
         Schema::create('resources', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('resource_name');
             $table->string('description');
             $table->string('color');
             $table->timestamps();
-        });
-    }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('resources');
-    }
-}
+        
 =================================================================
